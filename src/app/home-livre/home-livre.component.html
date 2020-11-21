@@ -1,0 +1,55 @@
+
+<header>
+<div class="navbar1">
+  <a  routerLink="" >Home</a>
+  <a routerLink="AjouterLivre">Ajouter Livre</a>
+  <a routerLink="biblio">Biblio</a>
+  <a href="#">ajouter une histoire</a>
+</div>
+
+
+  <nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+  </nav>
+
+
+</header>
+
+
+<button (click)="ServiceLivre.AfficherListLivre()" type="button" class="btn btn-primary">Afficher</button>
+<!--<button (click)="ServiceLivre.AfficherListLivre()" >afficher</button>
+<button (click)="ServiceLivre.goToAjouter()"  >ajouter</button>-->
+
+<div *ngIf="ServiceLivre.aa==true">
+
+
+
+  
+
+
+
+  <div class="container">
+    <div class="row">
+      <div  *ngIf="m">{{envoyeralet(m)}}
+      </div>
+      <div class="" *ngFor="let Livre of ServiceLivre.ListLivre,let i=index ">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{Livre.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Titre : {{Livre.TitreLivre}}</h5>
+            <p class="card-text"> Nom Auteur : {{Livre.NomAuteur}}</p>
+            <p class="card-text"> Price : {{Livre.price}}</p>
+            <p class="card-text"> Quantity : {{Livre.quantity}}</p>
+            <img src="./assets/image/delete.png" (click)="ServiceLivre.deleteProduct(Livre.id)">
+            <img src="./assets/image/edit.png" (click)="ServiceLivre.goToModifier(Livre.id)">
+
+            <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" ></app-biblio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

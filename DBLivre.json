@@ -1,0 +1,54 @@
+{
+  "Livre": [
+    {
+      "id": "4",
+      "image": "assets/image/1.jpg",
+      "TitreLivre": "lll",
+      "NomAuteur": "kkk",
+      "price": "5",
+      "quantity": "5",
+      "like": 0
+    },
+    {
+      "id": "6",
+      "image": "assets/image/1.jpg",
+      "TitreLivre": "aaa",
+      "NomAuteur": "mmmm",
+      "price": "6",
+      "quantity": "6",
+      "like": 0
+    },
+    {
+      "id": "6",
+      "image": "assets/image/1.jpg",
+      "TitreLivre": "aaa",
+      "NomAuteur": "mmmm",
+      "price": "6",
+      "quantity": "6",
+      "like": 0
+    },
+    {
+      "id": "6",
+      "image": "assets/image/1.jpg",
+      "TitreLivre": "aaa",
+      "NomAuteur": "mmmm",
+      "price": "6",
+      "quantity": "6",
+      "like": 0
+    }
+  ],
+  "Biblio": [
+    {
+      "id": "6",
+      "image": "assets/image/1.jpg",
+      "TitreLivre": "aaa",
+      "NomAuteur": "mmmm",
+      "price": "6",
+      "quantity": "6",
+      "like": 0
+    },
+    {
+      "id": "Tyei_38"
+    }
+  ]
+}

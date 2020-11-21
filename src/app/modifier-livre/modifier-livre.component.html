@@ -1,0 +1,33 @@
+<header>
+  <section class="navbar1">
+    <a  routerLink="" >Home</a>
+    <a routerLink="AjouterLivre">Ajouter Livre</a>
+    <a href="#"> expériences proffessionnelles</a>
+  </section>
+  <nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+  </nav>
+</header>
+<form [formGroup]="form" (ngSubmit)="ServiceLivre.ModifierLivre1(form.value,id.value)">
+  <div>idLivre :<input type="text"  placeholder={{idL}} formControlName="id">
+  </div>
+
+  <div>TitreLivre: <input type="text" formControlName="TitreLivre"></div>
+  <div *ngIf="controles.TitreLivre.invalid && controles.TitreLivre.dirty">**Titre Livre Obligatoire**</div>
+
+  <div> NomAuteur:<input type="text" formControlName="NomAuteur"></div>
+  <div *ngIf="controles.NomAuteur.invalid && controles.NomAuteur.dirty">**Nom Auteur Obligatoire**</div>
+
+  <div> price:<input type="text" formControlName="price"></div>
+  <div *ngIf="controles.price.invalid && controles.price.dirty">**price invalid**</div>
+
+  <div> quantity:<input type="text" formControlName="quantity"></div>
+  <div *ngIf="controles.quantity.invalid && controles.price.dirty"> **quantity invalid** </div>
+
+  <div> like:<input type="text" formControlName="like"></div>
+
+  <div class="form-group">
+    <input type="submit" [disabled]="form.invalid" class="btn-primary" value="Modifier">
+  </div>
+</form>
+
