@@ -15,28 +15,33 @@
 <form #form="ngForm"  (ngSubmit)="ServiceLivre.ajouter(form.value)">
 
          <div>
-           idLivre :<input type="text" name="id" #id="ngModel" [ngModel] required>
+           idLivre :<input type="text" name="id" #id="ngModel" [ngModel] required [(ngModel)]="text">
            <p *ngIf="id.invalid"> Titre Livre est Obligatoire</p>
+           <p *ngIf="text">votre id livre est :{{text}}</p>
 
 
          </div>
 
-  <div> TitreLivre: <input type="text"  name="TitreLivre" #TitreLivre="ngModel" [ngModel] required >
+  <div> TitreLivre: <input type="text"  name="TitreLivre" #TitreLivre="ngModel" [ngModel] required [(ngModel)]="text1" >
     <p *ngIf="TitreLivre.invalid"> Titre Livre est Obligatoire</p>
+    <p *ngIf="text1">votre titre livre est :{{text1}}</p>
   </div>
   <div>
 
-    NomAuteur:<input type="text"  name="NomAuteur" #NomAuteur="ngModel" [ngModel] required >
+    NomAuteur:<input type="text"  name="NomAuteur" #NomAuteur="ngModel" [ngModel] required [(ngModel)]="text2" >
     <p *ngIf="NomAuteur.invalid">Nom Auteur est Obligatoire</p>
+    <p *ngIf="text2"> Nom Auteur de livre est :{{text2}}</p>
   </div>
   <div>
-    price:<input type="text" name="price" #price="ngModel" [ngModel] required pattern="^[1-9][0-9]*$">
+    price:<input type="text" name="price" #price="ngModel" [ngModel] required pattern="^[1-9][0-9]*$" [(ngModel)]="text3">
     <p *ngIf="price.invalid"> price est Obligatoire && Number</p>
+    <p *ngIf="text3">price de livre est :{{text3}}</p>
 
   </div>
   <div>
-    quantity:<input type="text" name="quantity" #quantity="ngModel" [ngModel] required pattern="^[1-9][0-9]*$">
+    quantity:<input type="text" name="quantity" #quantity="ngModel" [ngModel] required pattern="^[1-9][0-9]*$" [(ngModel)]="text4">
     <p *ngIf="quantity.invalid"> Qauntity est Obligatoire && Number</p>
+    <p *ngIf="text4">Quantity livre est :{{text4}}</p>
 
   </div>
 

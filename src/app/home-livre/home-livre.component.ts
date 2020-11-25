@@ -9,7 +9,7 @@ import {LivreServiceService} from '../shared/livre-service.service';
 export class HomeLivreComponent implements OnInit {
   message: number;
   m;
-
+  searchValue:string;
   constructor(public ServiceLivre: LivreServiceService) {
   }
 
@@ -20,6 +20,10 @@ export class HomeLivreComponent implements OnInit {
   envoyeralet(m) {
        alert('prix Totale:' + m);
   }
+
+
+
+
 
   procces(message): number {
     console.log(message);

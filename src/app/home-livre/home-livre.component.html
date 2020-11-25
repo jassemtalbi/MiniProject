@@ -17,22 +17,20 @@
 
 
 <button (click)="ServiceLivre.AfficherListLivre()" type="button" class="btn btn-primary">Afficher</button>
+<br>
+<p *ngIf="m"> le prix Totale de cette Livres est :{{m}}</p>
 <!--<button (click)="ServiceLivre.AfficherListLivre()" >afficher</button>
 <button (click)="ServiceLivre.goToAjouter()"  >ajouter</button>-->
-
 <div *ngIf="ServiceLivre.aa==true">
 
-
-
-  
-
-
-
+    <label>Recherche MULTI</label>
+    <input type="text" [(ngModel)]="searchValue"  class="form-control">
   <div class="container">
     <div class="row">
-      <div  *ngIf="m">{{envoyeralet(m)}}
+  <!--    <div  *ngIf="m">{{envoyeralet(m)}}
       </div>
-      <div class="" *ngFor="let Livre of ServiceLivre.ListLivre,let i=index ">
+-->
+      <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
 
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{Livre.image}}" alt="Card image cap">

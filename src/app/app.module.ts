@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ModifierLivreComponent } from './modifier-livre/modifier-livre.component';
 import { DeleteLivreComponent } from './delete-livre/delete-livre.component';
 import { BiblioComponent } from './biblio/biblio.component';
+import { SearchfilterPipe } from './searchfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BiblioComponent } from './biblio/biblio.component';
     AddLivreComponent,
     ModifierLivreComponent,
     DeleteLivreComponent,
-    BiblioComponent
+    BiblioComponent,
+    SearchfilterPipe
   ],
     imports: [
         BrowserModule,

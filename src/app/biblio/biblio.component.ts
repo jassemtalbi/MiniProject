@@ -10,6 +10,7 @@ export class BiblioComponent implements OnInit {
   @Input() Nombre;
   @Input() price;
 
+
   @Output() notif = new EventEmitter();
 
   constructor(public ServiceLivre: LivreServiceService) {
