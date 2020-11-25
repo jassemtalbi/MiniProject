@@ -11,6 +11,7 @@ import { ModifierLivreComponent } from './modifier-livre/modifier-livre.componen
 import { DeleteLivreComponent } from './delete-livre/delete-livre.component';
 import { BiblioComponent } from './biblio/biblio.component';
 import { SearchfilterPipe } from './searchfilter.pipe';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     ModifierLivreComponent,
     DeleteLivreComponent,
     BiblioComponent,
-    SearchfilterPipe
+    SearchfilterPipe,
+    ReservationComponent
   ],
     imports: [
         BrowserModule,

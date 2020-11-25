@@ -1,0 +1,56 @@
+
+<header>
+  <div class="navbar1">
+    <a  routerLink="" >Home</a>
+    <a routerLink="AjouterLivre">Ajouter Livre</a>
+    <a routerLink="Reservation"> Mon Reservation</a>
+    <a href="#">ajouter une histoire</a>
+  </div>
+
+
+  <nav class="navbar navbar-dark bg-dark">
+    <!-- Navbar content -->
+  </nav>
+
+
+</header>
+
+<button (click)="ServiceLivre.AfficherListBiblio()" type="button" class="btn btn-primary">Afficher</button>
+<div *ngIf="ServiceLivre.aa==true">
+<table border="3" class="table"  class="text-lg-center">
+  <tr>
+    <td>
+      ID Livre
+    </td>
+    <td>
+     Titre Livre
+    </td>
+    <td>
+Nom Auteur
+    </td>
+    <td>
+      Price
+    </td>
+  
+  </tr>
+
+  <tr *ngFor="let R of ServiceLivre.ListBiblio">
+    <td>
+      {{R.id}}
+    </td>
+    <td>
+      {{R.TitreLivre}}
+    </td>
+
+    <td>
+      {{R.NomAuteur}}
+    </td>
+    <td>
+      {{R.price}}
+    </td>
+
+
+
+</table>
+</div>
+

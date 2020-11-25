@@ -9,6 +9,7 @@ import {LivreServiceService} from '../shared/livre-service.service';
 })
 export class AddLivreComponent implements OnInit {
 text;
+LivreL;
   text1;
   text2;
   text3;

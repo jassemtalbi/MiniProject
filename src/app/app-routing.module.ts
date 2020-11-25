@@ -5,11 +5,15 @@ import {AddLivreComponent} from './add-livre/add-livre.component';
 import {ModifierLivreComponent} from './modifier-livre/modifier-livre.component';
 import {DeleteLivreComponent} from './delete-livre/delete-livre.component';
 import {BiblioComponent} from './biblio/biblio.component';
+import {ReservationComponent} from './reservation/reservation.component';
 
 
 const routes: Routes = [
   {
     path: '', component: HomeLivreComponent
+  },
+  {
+    path: 'Reservation', component: ReservationComponent
   },
   {
     path: 'delete/:id', component: DeleteLivreComponent

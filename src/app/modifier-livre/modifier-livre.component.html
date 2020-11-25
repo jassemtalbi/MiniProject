@@ -8,8 +8,8 @@
     <!-- Navbar content -->
   </nav>
 </header>
-<form [formGroup]="form" (ngSubmit)="ServiceLivre.ModifierLivre1(form.value,id.value)">
-  <div>idLivre :<input type="text"  placeholder={{idL}} formControlName="id">
+<form  [formGroup]="form" (ngSubmit)="ServiceLivre.ModifierLivre1(form.value,id.value)">
+  <div>idLivre :<input  type="text"  placeholder={{idL}}  formControlName="id" >
   </div>
 
   <div>TitreLivre: <input type="text" formControlName="TitreLivre"></div>

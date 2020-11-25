@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ModifierLivreComponent implements OnInit {
   idL;
-
+LivreL;
   constructor(public ServiceLivre: LivreServiceService, private f: FormBuilder, private activatedRoute: ActivatedRoute) {
   }
 

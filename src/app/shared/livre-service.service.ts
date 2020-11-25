@@ -9,8 +9,8 @@ import {Biblio} from '../model/Biblio';
   providedIn: 'root'
 })
 export class LivreServiceService {
-  LivreUrl: string = '/api/Livre/';
-  BiblioUrl: string = '/api/Biblio/';
+  LivreUrl = '/api/Livre/';
+  BiblioUrl = '/api/Biblio/';
 
   ListLivre: Livre[ ];
   ListBiblio: Biblio[];
@@ -18,7 +18,6 @@ export class LivreServiceService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
-
 
   public GetLivres() {
     return this.http.get<Livre[]>(this.LivreUrl);
@@ -47,11 +46,13 @@ export class LivreServiceService {
   public ajouter(form) {
     this.aa = false;
     form.like = 0;
+    form.image = '/assets/image/1.jpg';
+
+
     this.addLivre(form).subscribe(
       (data) => {
         console.log('ajouter');
         this.router.navigate(['']);
-
       },
       (error) => {
         alert('id trouve');
@@ -70,6 +71,7 @@ export class LivreServiceService {
 
   public ModifierLivre1(form, Id) {
     this.aa = false;
+    form.image = '/assets/image/1.jpg';
     this.ModifierLivre(form, Id).subscribe(
       (data) => {
         console.log('Modifier');
@@ -125,7 +127,8 @@ export class LivreServiceService {
 
   public ajouterBiblio(livre) {
     this.aa = false;
-    this.addBiblio(livre.value).subscribe(
+    //this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
+    this.addBiblio(livre).subscribe(
       (data) => {
         console.log('ajouter');
         this.router.navigate(['']);
