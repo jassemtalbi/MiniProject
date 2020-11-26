@@ -1,30 +1,38 @@
 
 <header>
-<div class="navbar1">
-  <a  routerLink="" >Home</a>
-  <a routerLink="AjouterLivre">Ajouter Livre</a>
-  <a routerLink="Reservation"> Mon Reservation</a>
-  <a href="#">ajouter une histoire</a>
-</div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+        </li>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <!-- Navbar content -->
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+        <input type="text" [(ngModel)]="searchValue" >
+
+    </div>
   </nav>
-
-
 </header>
 
 
-<button (click)="ServiceLivre.AfficherListLivre()" type="button" class="btn btn-primary">Afficher</button>
 <br>
-<p *ngIf="m"> le prix Totale de cette Livres est :{{m}}</p>
 <!--<button (click)="ServiceLivre.AfficherListLivre()" >afficher</button>
 <button (click)="ServiceLivre.goToAjouter()"  >ajouter</button>-->
-<div *ngIf="ServiceLivre.aa==true">
 
-    <label>Recherche MULTI</label>
-    <input type="text" [(ngModel)]="searchValue"  class="form-control">
   <div class="container">
     <div class="row">
   <!--    <div  *ngIf="m">{{envoyeralet(m)}}
@@ -33,22 +41,22 @@
       <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
 
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{Livre.image}}" alt="Card image cap">
+          <img class="card-img-top" src="{{Livre.image}}"  alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Titre : {{Livre.TitreLivre}}</h5>
             <p class="card-text"> Nom Auteur : {{Livre.NomAuteur}}</p>
             <p class="card-text"> Price : {{Livre.price}}</p>
             <p class="card-text"> Quantity : {{Livre.quantity}}</p>
+
             <img src="./assets/image/delete.png" (click)="ServiceLivre.deleteProduct(Livre.id)">
             <img src="./assets/image/edit.png" (click)="ServiceLivre.goToModifier(Livre.id)">
-            <input type="button" value="reservé" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
+            <input type="button" value="Details" class="btn btn-primary" (click)="ServiceLivre.goToDetails(Livre.id)">
 
-            <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" ></app-biblio>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
 
 

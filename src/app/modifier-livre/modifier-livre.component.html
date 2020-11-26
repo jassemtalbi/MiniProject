@@ -1,28 +1,44 @@
 <header>
-  <section class="navbar1">
-    <a  routerLink="" >Home</a>
-    <a routerLink="AjouterLivre">Ajouter Livre</a>
-    <a href="#"> expériences proffessionnelles</a>
-  </section>
-  <nav class="navbar navbar-dark bg-dark">
-    <!-- Navbar content -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+
+    </div>
   </nav>
 </header>
 <form  [formGroup]="form" (ngSubmit)="ServiceLivre.ModifierLivre1(form.value,id.value)">
-  <div>idLivre :<input  type="text"  placeholder={{idL}}  formControlName="id" >
+  <div>idLivre :<input  type="text" [(ngModel)]="idL" formControlName="id" >
   </div>
+  <div>TitreLivre: <input type="text" [(ngModel)]="Livre.TitreLivre" formControlName="TitreLivre"></div>
+  <div *ngIf="controles.TitreLivre.invalid && controles.TitreLivre.dirty"><p class="heading">**Titre Livre Obligatoire**</p></div>
 
-  <div>TitreLivre: <input type="text" formControlName="TitreLivre"></div>
-  <div *ngIf="controles.TitreLivre.invalid && controles.TitreLivre.dirty">**Titre Livre Obligatoire**</div>
+  <div> NomAuteur:<input type="text" [(ngModel)]="Livre.NomAuteur" formControlName="NomAuteur"></div>
+  <div *ngIf="controles.NomAuteur.invalid && controles.NomAuteur.dirty"><p class="heading">**Nom Auteur Obligatoire**</p></div>
 
-  <div> NomAuteur:<input type="text" formControlName="NomAuteur"></div>
-  <div *ngIf="controles.NomAuteur.invalid && controles.NomAuteur.dirty">**Nom Auteur Obligatoire**</div>
+  <div> price:<input type="text" [(ngModel)]="Livre.price" formControlName="price"></div>
+  <div *ngIf="controles.price.invalid && controles.price.dirty"><p class="heading">**price invalid**</p></div>
 
-  <div> price:<input type="text" formControlName="price"></div>
-  <div *ngIf="controles.price.invalid && controles.price.dirty">**price invalid**</div>
-
-  <div> quantity:<input type="text" formControlName="quantity"></div>
-  <div *ngIf="controles.quantity.invalid && controles.price.dirty"> **quantity invalid** </div>
+  <div> quantity:<input type="text" [(ngModel)]="Livre.quantity"  formControlName="quantity"></div>
+  <div *ngIf="controles.quantity.invalid && controles.price.dirty"><p class="heading"> **quantity invalid** </p></div>
 
   <div> like:<input type="text" formControlName="like"></div>
 

@@ -1,42 +1,60 @@
 {
   "Livre": [
     {
-      "id": "4",
-      "image": "assets/image/1.jpg",
-      "TitreLivre": "lll",
-      "NomAuteur": "kkk",
-      "price": "5",
+      "id": "5",
+      "TitreLivre": "llllllk",
+      "NomAuteur": "mlm",
+      "price": "55",
       "quantity": "5",
-      "like": 0
+      "like": "5",
+      "image": "/assets/image/1.jpg"
     },
     {
-      "id": "10",
+      "id": "7",
       "TitreLivre": "mmm",
       "NomAuteur": "mmm",
-      "price": "5",
-      "quantity": "4",
+      "price": "8",
+      "quantity": "5",
       "like": 0,
+      "image": "/assets/image/1.jpg"
+    },
+    {
+      "id": "88",
+      "TitreLivre": "how to kill maha",
+      "NomAuteur": "Jassem Talbi",
+      "price": "1",
+      "quantity": "2000000",
+      "like": "5",
       "image": "/assets/image/1.jpg"
     }
   ],
   "Biblio": [
     {
-      "id": "6",
-      "image": "assets/image/1.jpg",
-      "TitreLivre": "aaa",
-      "NomAuteur": "mmmm",
-      "price": "6",
-      "quantity": "6",
-      "like": 0
+      "id": "5",
+      "TitreLivre": "llllllk",
+      "NomAuteur": "mlm",
+      "price": "55",
+      "quantity": "5",
+      "like": "5",
+      "image": "/assets/image/1.jpg"
     },
     {
       "id": "4",
-      "image": "assets/image/1.jpg",
       "TitreLivre": "lll",
       "NomAuteur": "kkk",
-      "price": "5",
-      "quantity": "5",
-      "like": 0
+      "price": "545",
+      "quantity": "6",
+      "like": "5",
+      "image": "/assets/image/1.jpg"
+    },
+    {
+      "id": "88",
+      "TitreLivre": "how to kill siwar",
+      "NomAuteur": "Jassem Talbi",
+      "price": "1",
+      "quantity": "2000000",
+      "like": 0,
+      "image": "/assets/image/1.jpg"
     }
   ]
 }

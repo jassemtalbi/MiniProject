@@ -25,41 +25,39 @@
     </div>
   </nav>
 </header>
-<div *ngIf="ServiceLivre.aa==true">
-<table border="3" class="table"  class="text-lg-center">
-  <tr>
-    <td>
-      ID Livre
-    </td>
-    <td>
-     Titre Livre
-    </td>
-    <td>
-Nom Auteur
-    </td>
-    <td>
-      Price
-    </td>
+<p *ngIf="m"> le prix Totale de cette Livres est :{{m}}</p>
 
-  </tr>
+<main class="container">
 
-  <tr *ngFor="let R of ServiceLivre.ListBiblio">
-    <td>
-      {{R.id}}
-    </td>
-    <td>
-      {{R.TitreLivre}}
-    </td>
+  <!-- Left Column / Headphones Image -->
+  <div class="left-column">
+    <img  src="assets/image/1.jpg" alt="">
 
-    <td>
-      {{R.NomAuteur}}
-    </td>
-    <td>
-      {{R.price}}
-    </td>
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>Description de Livre</span>
+      <h3>{{Livre.TitreLivre}}</h3>
+      <p>l'auteur de ce livre est : {{Livre.NomAuteur}}</p>
+      <p>le nombre de livre est :{{Livre.quantity}}</p>
+
+    </div>
 
 
 
-</table>
-</div>
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span>{{Livre.price}} DT</span>
 
+      <a href="#" class="cart-btn">Reserve</a>
+    </div>
+    <input type="button" value="reservé" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
+    <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" ></app-biblio>
+
+  </div>
+</main>

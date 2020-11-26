@@ -1,46 +1,62 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <header>
-  <section class="navbar1">
-    <a  routerLink="" >Home</a>
-    <a routerLink="AjouterLivre">Ajouter Livre</a>
-    <a href="#">afficher une histoire</a>
-    <a href="#">ajouter une histoire</a>
-  </section>
-  <nav class="navbar navbar-dark bg-dark">
-    <!-- Navbar content -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+
+    </div>
   </nav>
 </header>
+
 
 <form #form="ngForm"  (ngSubmit)="ServiceLivre.ajouter(form.value)">
 
          <div>
            idLivre :<input type="text" name="id" #id="ngModel" [ngModel] required [(ngModel)]="text">
-           <p *ngIf="id.invalid"> Titre Livre est Obligatoire</p>
-           <p *ngIf="text">votre id livre est :{{text}}</p>
+           <p *ngIf="id.invalid" class="heading"> l'id est Obligatoire</p>
+           <p *ngIf="text" class="heading">votre id livre est :{{text}}</p>
 
 
          </div>
 
   <div> TitreLivre: <input type="text"  name="TitreLivre" #TitreLivre="ngModel" [ngModel] required [(ngModel)]="text1" >
-    <p *ngIf="TitreLivre.invalid"> Titre Livre est Obligatoire</p>
+    <p *ngIf="TitreLivre.invalid"class="heading"> Titre Livre est Obligatoire</p>
     <p *ngIf="text1">votre titre livre est :{{text1}}</p>
   </div>
   <div>
 
     NomAuteur:<input type="text"  name="NomAuteur" #NomAuteur="ngModel" [ngModel] required [(ngModel)]="text2" >
-    <p *ngIf="NomAuteur.invalid">Nom Auteur est Obligatoire</p>
+    <p *ngIf="NomAuteur.invalid" class="heading">Nom Auteur est Obligatoire</p>
     <p *ngIf="text2"> Nom Auteur de livre est :{{text2}}</p>
   </div>
   <div>
     price:<input type="text" name="price" #price="ngModel" [ngModel] required pattern="^[1-9][0-9]*$" [(ngModel)]="text3">
-    <p *ngIf="price.invalid"> price est Obligatoire && Number</p>
+    <p *ngIf="price.invalid" class="heading"> price est Obligatoire && Number</p>
     <p *ngIf="text3">price de livre est :{{text3}}</p>
 
   </div>
   <div>
     quantity:<input type="text" name="quantity" #quantity="ngModel" [ngModel] required pattern="^[1-9][0-9]*$" [(ngModel)]="text4">
-    <p *ngIf="quantity.invalid"> Qauntity est Obligatoire && Number</p>
+    <p *ngIf="quantity.invalid" class="heading"> Qauntity est Obligatoire && Number</p>
     <p *ngIf="text4">Quantity livre est :{{text4}}</p>
 
   </div>

@@ -9,25 +9,16 @@ import {LivreServiceService} from '../shared/livre-service.service';
 export class HomeLivreComponent implements OnInit {
   message: number;
   m;
-  searchValue:string;
+  searchValue: string;
+
   constructor(public ServiceLivre: LivreServiceService) {
   }
 
 
   ngOnInit(): void {
-  }
-
-  envoyeralet(m) {
-       alert('prix Totale:' + m);
+    this.ServiceLivre.AfficherListLivre();
   }
 
 
 
-
-
-  procces(message): number {
-    console.log(message);
-    this.m = message;
-    return message;
-  }
 }

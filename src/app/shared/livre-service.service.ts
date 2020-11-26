@@ -84,9 +84,8 @@ export class LivreServiceService {
     );
   }
 
-  public goToModifier(id) {
-    this.router.navigate(['Modifier/' + id]);
-  }
+
+
 
   DeleteProduct(id: number) {
     return this.http.delete<Livre[]>(this.LivreUrl + id);
@@ -140,5 +139,13 @@ export class LivreServiceService {
     );
 
   }
-
+   getLivre(id: number) {
+    return this.http.get<Livre>(this.LivreUrl + id);
+  }
+  public goToModifier(id) {
+    this.router.navigate(['Modifier/' + id]);
+  }
+  public goToDetails(id) {
+    this.router.navigate(['details/' + id]);
+  }
 }

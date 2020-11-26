@@ -11,6 +11,7 @@ export class ReservationComponent implements OnInit {
   constructor(public ServiceLivre: LivreServiceService) { }
 
   ngOnInit(): void {
+    this.ServiceLivre.AfficherListBiblio();
   }
 
 }

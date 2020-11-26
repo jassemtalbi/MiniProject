@@ -7,6 +7,8 @@ import {DeleteLivreComponent} from './delete-livre/delete-livre.component';
 import {BiblioComponent} from './biblio/biblio.component';
 import {ReservationComponent} from './reservation/reservation.component';
 
+import {DetailsLivreComponent} from './details-livre/details-livre.component';
+
 
 const routes: Routes = [
   {
@@ -28,8 +30,12 @@ const routes: Routes = [
     path: 'afficher', component: HomeLivreComponent
   },
   {
+    path: 'details/:id', component: DetailsLivreComponent
+  },
+  {
     path: 'biblio', component: BiblioComponent
-  }
+  },
+
 ];
 
 @NgModule({

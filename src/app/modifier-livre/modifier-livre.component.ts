@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Livre} from '../model/Livre';
 import {LivreServiceService} from '../shared/livre-service.service';
 import {FormBuilder, MinLengthValidator, Validators} from '@angular/forms';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-modifier-livre',
@@ -11,7 +11,16 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ModifierLivreComponent implements OnInit {
   idL;
-LivreL;
+  LivreL;
+  index;
+  idc;
+  i;
+  TitreLivre;
+  NomAuteur;
+  quantity;
+  price;
+  Livre: Livre;
+
   constructor(public ServiceLivre: LivreServiceService, private f: FormBuilder, private activatedRoute: ActivatedRoute) {
   }
 
@@ -34,6 +43,12 @@ LivreL;
 
   ngOnInit(): void {
     this.idL = this.activatedRoute.snapshot.params['id'];
+    this.ServiceLivre.getLivre(this.idL).subscribe(
+      (data) => {
+        this.Livre = data;
+      }
+    );
   }
 
+ 
 }

@@ -12,6 +12,7 @@ import { DeleteLivreComponent } from './delete-livre/delete-livre.component';
 import { BiblioComponent } from './biblio/biblio.component';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import { ReservationComponent } from './reservation/reservation.component';
+import { DetailsLivreComponent } from './details-livre/details-livre.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     DeleteLivreComponent,
     BiblioComponent,
     SearchfilterPipe,
-    ReservationComponent
+    ReservationComponent,
+    DetailsLivreComponent
   ],
     imports: [
         BrowserModule,
