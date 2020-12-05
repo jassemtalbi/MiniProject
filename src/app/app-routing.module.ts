@@ -8,32 +8,57 @@ import {BiblioComponent} from './biblio/biblio.component';
 import {ReservationComponent} from './reservation/reservation.component';
 
 import {DetailsLivreComponent} from './details-livre/details-livre.component';
+import {AuthentificationComponent} from './authentification/authentification.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: HomeLivreComponent
+    path: 'Home', component: HomeLivreComponent
   },
   {
-    path: 'Reservation', component: ReservationComponent
+    path: '', component: AuthentificationComponent
   },
   {
-    path: 'delete/:id', component: DeleteLivreComponent
+    path: 'Home/AjouterLivre/Reservation', component: ReservationComponent
   },
   {
-    path: 'Modifier/:id', component: ModifierLivreComponent
+    path: 'Home/details/:id/Home', component: HomeLivreComponent
   },
   {
-    path: 'AjouterLivre', component: AddLivreComponent
+    path: 'Home/Reservation/AjouterLivre', component: AddLivreComponent
   },
   {
-    path: 'afficher', component: HomeLivreComponent
+    path: 'Home/Reservation', component: ReservationComponent
   },
   {
-    path: 'details/:id', component: DetailsLivreComponent
+    path: 'Home/details/:id/AjouterLivre', component: AddLivreComponent
   },
   {
-    path: 'biblio', component: BiblioComponent
+    path: 'Home/Reservation/Home', component: HomeLivreComponent
+  },
+  {
+    path: 'Home/delete/:id', component: DeleteLivreComponent
+  },
+  {
+    path: 'Home/Modifier/:id', component: ModifierLivreComponent
+  },
+  {
+    path: 'Home/Modifier/:id/Home', component: HomeLivreComponent
+  },
+  {
+    path: 'Home/AjouterLivre', component: AddLivreComponent
+  },
+  {
+    path: 'Home/AjouterLivre/Home', component: HomeLivreComponent
+  },
+  {
+    path: 'Home/afficher', component: HomeLivreComponent
+  },
+  {
+    path: 'Home/details/:id', component: DetailsLivreComponent
+  },
+  {
+    path: 'Home/biblio', component: BiblioComponent
   },
 
 ];

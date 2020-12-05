@@ -13,7 +13,8 @@ import { BiblioComponent } from './biblio/biblio.component';
 import { SearchfilterPipe } from './searchfilter.pipe';
 import { ReservationComponent } from './reservation/reservation.component';
 import { DetailsLivreComponent } from './details-livre/details-livre.component';
-
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,14 +25,16 @@ import { DetailsLivreComponent } from './details-livre/details-livre.component';
     BiblioComponent,
     SearchfilterPipe,
     ReservationComponent,
-    DetailsLivreComponent
+    DetailsLivreComponent,
+    AuthentificationComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+      NgxQRCodeModule
 
     ],
   providers: [],

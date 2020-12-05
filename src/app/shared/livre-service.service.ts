@@ -4,16 +4,20 @@ import {Observable} from 'rxjs';
 import {Livre} from '../model/Livre';
 import {Router} from '@angular/router';
 import {Biblio} from '../model/Biblio';
+import {user} from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class LivreServiceService {
   LivreUrl = '/api/Livre/';
   BiblioUrl = '/api/Biblio/';
-
+  userUrl = '/api/user';
+  ListUser: user[];
   ListLivre: Livre[ ];
   ListBiblio: Biblio[];
+  fileSource;
   aa = false;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -46,13 +50,11 @@ export class LivreServiceService {
   public ajouter(form) {
     this.aa = false;
     form.like = 0;
-    form.image = '/assets/image/1.jpg';
-
-
+    // form.image = '/assets/image/1.jpg';
     this.addLivre(form).subscribe(
       (data) => {
         console.log('ajouter');
-        this.router.navigate(['']);
+        this.router.navigate(['Home']);
       },
       (error) => {
         alert('id trouve');
@@ -76,15 +78,13 @@ export class LivreServiceService {
       (data) => {
         console.log('Modifier');
 
-        this.router.navigate(['']);
+        this.router.navigate(['Home/Modifier/' + Id + '/Home']);
 
       }, (error) => {
         alert('id non trouver');
       }
     );
   }
-
-
 
 
   DeleteProduct(id: number) {
@@ -94,7 +94,7 @@ export class LivreServiceService {
   public deleteProduct(id: number) {
     this.aa = false;
     this.DeleteProduct(id).subscribe();
-    this.router.navigate(['delete/' + id]);
+    this.router.navigate(['Home/delete/' + id]);
   }
 
   public GetBiblio() {
@@ -126,11 +126,11 @@ export class LivreServiceService {
 
   public ajouterBiblio(livre) {
     this.aa = false;
-    //this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
+    // this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
     this.addBiblio(livre).subscribe(
       (data) => {
         console.log('ajouter');
-        this.router.navigate(['']);
+        this.router.navigate(['Home']);
 
       },
       (error) => {
@@ -139,13 +139,44 @@ export class LivreServiceService {
     );
 
   }
-   getLivre(id: number) {
+
+  getLivre(id: number) {
     return this.http.get<Livre>(this.LivreUrl + id);
   }
+
   public goToModifier(id) {
-    this.router.navigate(['Modifier/' + id]);
+    this.router.navigate(['Home/Modifier/' + id]);
   }
+
   public goToDetails(id) {
-    this.router.navigate(['details/' + id]);
+    this.router.navigate(['Home/details/' + id]);
   }
+
+
+  public Getuser() {
+    return this.http.get<user[]>(this.userUrl);
+  }
+
+  Verification(login, mdp) {
+    this.Getuser().subscribe(
+      (data) => {
+        this.ListUser = data;
+        for (let i = 0; i < this.ListUser.length; i++) {
+          if ((this.ListUser[i].login == login) && (this.ListUser[i].mdp == mdp)) {
+            // this.router.navigate(['acceuil']);
+            console.log(this.ListUser);
+            this.router.navigate(['Home']);
+          }
+        }
+    //    alert('verifier votre Login et Mot passe');
+
+      },
+      errors => {
+        console.log(errors);
+        alert(errors.status);
+      },
+    )
+    ;
+  }
+
 }

@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="Home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+          <a class="nav-link" routerLink="/Home/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+          <a class="nav-link" routerLink="/Home/Reservation">Mon Reservation</a>
         </li>
 
         <li class="nav-item">
@@ -41,7 +41,7 @@
       <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
 
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{Livre.image}}"  alt="Card image cap">
+          <img class="card-img-top" src="{{Livre?.fileSource}}" style="height: 100px; width:100px"/>
           <div class="card-body">
             <h5 class="card-title">Titre : {{Livre.TitreLivre}}</h5>
             <p class="card-text"> Nom Auteur : {{Livre.NomAuteur}}</p>

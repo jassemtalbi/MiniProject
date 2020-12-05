@@ -1,0 +1,14 @@
+  <div class="form-group">
+    <label for="loginl">Login</label>
+    <input type="email" [(ngModel)]="login" class="form-control" id="loginl" #loginl="ngModel" [ngModel] required aria-describedby="emailHelp" placeholder="login">
+    <p *ngIf="loginl.invalid" class="heading"> login est Obligatoire</p>
+
+  </div>
+  <div class="form-group">
+    <label for="passw">Password</label>
+    <input [(ngModel)]="pass" type="password" class="form-control" id="passw" #passw="ngModel" [ngModel] minlength="8"  required placeholder="Password">
+    <p *ngIf="passw.invalid" class="heading"> verfier votre mot passe (minimum 8)</p>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="ServiceLivre.Verification(login,pass)">Submit</button>

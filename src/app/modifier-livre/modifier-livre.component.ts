@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Livre} from '../model/Livre';
 import {LivreServiceService} from '../shared/livre-service.service';
-import {FormBuilder, MinLengthValidator, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, MinLengthValidator, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -20,17 +20,23 @@ export class ModifierLivreComponent implements OnInit {
   quantity;
   price;
   Livre: Livre;
-
+  text;
+  text1;
+  text2;
+  text3;
+  text4;
+  imageSrc: string;
   constructor(public ServiceLivre: LivreServiceService, private f: FormBuilder, private activatedRoute: ActivatedRoute) {
   }
 
   form = this.f.group({
     id: ['', Validators.required],
+    image: [null, [Validators.required]],
+    fileSource: new FormControl('', [Validators.required]),
     TitreLivre: ['', Validators.required],
     NomAuteur: ['', [Validators.required]],
     price: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$')]],
     quantity: ['', [Validators.required, Validators.pattern('^[1-9][0-9]*$')]],
-    like: ['', [Validators.required]]
   });
 
   get id() {
@@ -39,6 +45,19 @@ export class ModifierLivreComponent implements OnInit {
 
   get controles() {
     return this.form.controls;
+  }
+  onFileChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [image] = event.target.files;
+      reader.readAsDataURL(image);
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+        this.form.patchValue({
+          fileSource: reader.result
+        });
+      };
+    }
   }
 
   ngOnInit(): void {
@@ -50,5 +69,5 @@ export class ModifierLivreComponent implements OnInit {
     );
   }
 
- 
+
 }

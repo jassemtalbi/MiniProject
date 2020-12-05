@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/Home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+          <a class="nav-link" routerLink="/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+          <a class="nav-link" routerLink="/Home/AjouterLivre/Reservation">Mon Reservation</a>
         </li>
 
         <li class="nav-item">
@@ -28,7 +28,7 @@
 </header>
 
 
-<form #form="ngForm"  (ngSubmit)="ServiceLivre.ajouter(form.value)">
+<!--<form #form="ngForm"  (ngSubmit)="ServiceLivre.ajouter(form.value)">
 
          <div>
            idLivre :<input type="text" name="id" #id="ngModel" [ngModel] required [(ngModel)]="text">
@@ -62,9 +62,32 @@
   </div>
 
   <div class="form-group">
-    <input type="submit"  class="btn-primary" value="ajouter">  </div>
-</form>
+    <input type="submit"  [disabled]="form.invalid"  value="ajouter">  </div>
+</form>-->
+<form  [formGroup]="form" (ngSubmit)="ServiceLivre.ajouter(form.value)">
+  <div class="form-group">
+    <label>image</label>
+    <input id="file" type="file" formControlName="image" (change)="onFileChange($event)">
+  </div>
+  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
 
+  <div>TitreLivre: <input type="text"  formControlName="TitreLivre"></div>
+  <div *ngIf="controles.TitreLivre.invalid && controles.TitreLivre.dirty"><p class="heading">**Titre Livre Obligatoire**</p></div>
+
+  <div> NomAuteur:<input type="text"  formControlName="NomAuteur"></div>
+  <div *ngIf="controles.NomAuteur.invalid && controles.NomAuteur.dirty"><p class="heading">**Nom Auteur Obligatoire**</p></div>
+
+  <div> price:<input type="text"  formControlName="price"></div>
+  <div *ngIf="controles.price.invalid && controles.price.dirty"><p class="heading">**price invalid**</p></div>
+
+  <div> quantity:<input type="text"  formControlName="quantity"></div>
+  <div *ngIf="controles.quantity.invalid && controles.price.dirty"><p class="heading"> **quantity invalid** </p></div>
+
+
+  <div class="form-group">
+    <input type="submit" [disabled]="form.invalid" class="btn-primary" value="Modifier">
+  </div>
+</form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

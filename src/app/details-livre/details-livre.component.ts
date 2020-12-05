@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LivreServiceService} from '../shared/livre-service.service';
 import {FormBuilder} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
@@ -9,20 +9,26 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./details-livre.component.css']
 })
 export class DetailsLivreComponent implements OnInit {
-idL;
-Livre;
-m;
+
+
   constructor(public ServiceLivre: LivreServiceService, private f: FormBuilder, private activatedRoute: ActivatedRoute) {
   }
+  idL;
+  Livre;
+  m;
+value;
+  elementType = 'Description de  Livre';
 
   ngOnInit(): void {
     this.idL = this.activatedRoute.snapshot.params.id;
     this.ServiceLivre.getLivre(this.idL).subscribe(
       (data) => {
         this.Livre = data;
+        this.value = 'le nom de Livre: ' + this.Livre.TitreLivre + 'et le Nom d auteur :' + this.Livre.NomAuteur + 'avec un prix de :' + this.Livre.price;
       }
     );
   }
+
   procces(message): number {
     console.log(message);
     this.m = message;

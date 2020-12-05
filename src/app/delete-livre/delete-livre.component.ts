@@ -10,7 +10,7 @@ export class DeleteLivreComponent implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    this.router.navigate(['afficher']);
+    this.router.navigate(['Home']);
   }
   ngOnInit(): void {
   }

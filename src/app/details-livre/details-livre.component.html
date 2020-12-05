@@ -8,18 +8,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/Home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="AjouterLivre">Ajouter Livre</a>
+          <a class="nav-link" routerLink="Home/details/{{idL}}/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+
       </ul>
 
     </div>
@@ -31,7 +29,7 @@
 
   <!-- Left Column / Headphones Image -->
   <div class="left-column">
-    <img  src="assets/image/1.jpg" alt="">
+    <img src="{{Livre?.fileSource}}" alt="">
 
   </div>
 
@@ -53,11 +51,13 @@
     <!-- Product Pricing -->
     <div class="product-price">
       <span>{{Livre.price}} DT</span>
-
-      <a href="#" class="cart-btn">Reserve</a>
+      <ngx-qrcode [elementType]="elementType" [value] = "value" cssClass = "aclass" errorCorrectionLevel = "L"></ngx-qrcode>
     </div>
     <input type="button" value="reservé" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
     <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" ></app-biblio>
 
   </div>
 </main>
+
+
+

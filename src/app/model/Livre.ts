@@ -1,6 +1,6 @@
 export class Livre {
 
-  image: string;
+  image: File;
   id: number;
   TitreLivre: string;
   NomAuteur: string;
