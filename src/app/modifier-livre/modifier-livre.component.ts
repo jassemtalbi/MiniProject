@@ -19,7 +19,7 @@ export class ModifierLivreComponent implements OnInit {
   NomAuteur;
   quantity;
   price;
-  Livre: Livre;
+  Livre: any;
   text;
   text1;
   text2;

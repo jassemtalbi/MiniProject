@@ -126,8 +126,9 @@ export class LivreServiceService {
 
   public ajouterBiblio(livre) {
     this.aa = false;
-    // this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
+    this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
     this.addBiblio(livre).subscribe(
+
       (data) => {
         console.log('ajouter');
         this.router.navigate(['Home']);
@@ -158,17 +159,24 @@ export class LivreServiceService {
   }
 
   Verification(login, mdp) {
+    let log = 0;
     this.Getuser().subscribe(
       (data) => {
         this.ListUser = data;
         for (let i = 0; i < this.ListUser.length; i++) {
+
           if ((this.ListUser[i].login == login) && (this.ListUser[i].mdp == mdp)) {
+            log = 1;
             // this.router.navigate(['acceuil']);
             console.log(this.ListUser);
             this.router.navigate(['Home']);
           }
         }
-    //    alert('verifier votre Login et Mot passe');
+        if (log == 0) {
+          alert('verifier votre Login et Mot passe');
+
+        }
+
 
       },
       errors => {

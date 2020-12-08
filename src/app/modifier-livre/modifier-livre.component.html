@@ -14,12 +14,10 @@
           <a class="nav-link" routerLink="/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/Reservation">Mon Reservation</a>
+          <a class="nav-link" routerLink="/Reservation">Les Reservations</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+
       </ul>
 
     </div>
@@ -31,7 +29,7 @@
     <input id="file" type="file" formControlName="image" (change)="onFileChange($event)">
   </div>
   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
-  <div>idLivre :<input  type="text" [(ngModel)]="idL"   formControlName="id" >
+  <div>idLivre :<input disabled type="text" [(ngModel)]="idL"   formControlName="id" >
   </div>
   <div>TitreLivre: <input type="text" [(ngModel)]="Livre.TitreLivre" formControlName="TitreLivre"></div>
   <div *ngIf="controles.TitreLivre.invalid && controles.TitreLivre.dirty"><p class="heading">**Titre Livre Obligatoire**</p></div>

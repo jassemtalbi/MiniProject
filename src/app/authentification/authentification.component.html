@@ -1,14 +1,21 @@
-  <div class="form-group">
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Login Bibliotheque</h4>
+    <div class="card-body">
+<div class="form-group">
     <label for="loginl">Login</label>
     <input type="email" [(ngModel)]="login" class="form-control" id="loginl" #loginl="ngModel" [ngModel] required aria-describedby="emailHelp" placeholder="login">
-    <p *ngIf="loginl.invalid" class="heading"> login est Obligatoire</p>
+    <p *ngIf="loginl.invalid" class="heading">  Obligatoire</p>
 
   </div>
   <div class="form-group">
     <label for="passw">Password</label>
-    <input [(ngModel)]="pass" type="password" class="form-control" id="passw" #passw="ngModel" [ngModel] minlength="8"  required placeholder="Password">
-    <p *ngIf="passw.invalid" class="heading"> verfier votre mot passe (minimum 8)</p>
+    <input [(ngModel)]="pass" type="password" class="form-control" id="passw" #passw="ngModel" [ngModel]  required placeholder="Password">
+    <p *ngIf="passw.invalid" class="heading"> Obligatoire </p>
 
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="ServiceLivre.Verification(login,pass)">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)="ServiceLivre.Verification(login,pass)">Login</button>
+    </div>
+  </div>
+</div>

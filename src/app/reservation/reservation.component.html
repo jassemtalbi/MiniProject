@@ -14,11 +14,7 @@
           <a class="nav-link" routerLink="/Home/Reservation/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/Reservation">Mon Reservation</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" routerLink="/Reservation">Les Reservations</a>
         </li>
       </ul>
 
@@ -26,40 +22,24 @@
   </nav>
 </header>
 <div *ngIf="ServiceLivre.aa==true">
-<table border="3" class="table"  class="text-lg-center">
-  <tr>
-    <td>
-      ID Livre
-    </td>
-    <td>
-     Titre Livre
-    </td>
-    <td>
-Nom Auteur
-    </td>
-    <td>
-      Price
-    </td>
 
+<table class="table">
+  <thead>
+  <tr >
+    <th scope="col">ID Livre</th>
+    <th scope="col">Titre Livre</th>
+    <th scope="col">Nom Auteur</th>
+    <th scope="col">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let R of ServiceLivre.ListBiblio" >
+    <th scope="row">{{R.id}}</th>
+    <td>{{R.TitreLivre}}</td>
+    <td>{{R.NomAuteur}}</td>
+    <td>{{R.price}}</td>
   </tr>
 
-  <tr *ngFor="let R of ServiceLivre.ListBiblio">
-    <td>
-      {{R.id}}
-    </td>
-    <td>
-      {{R.TitreLivre}}
-    </td>
-
-    <td>
-      {{R.NomAuteur}}
-    </td>
-    <td>
-      {{R.price}}
-    </td>
-
-
-
+  </tbody>
 </table>
 </div>
-

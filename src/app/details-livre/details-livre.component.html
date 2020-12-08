@@ -11,10 +11,10 @@
           <a class="nav-link" routerLink="/Home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="Home/details/{{idL}}/AjouterLivre">Ajouter Livre</a>
+          <a class="nav-link" routerLink="/Home/details/{{idL}}/AjouterLivre">Ajouter Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="Reservation">Mon Reservation</a>
+          <a class="nav-link" routerLink="/Home/details/{{idL}}/Reservation">Les Reservations</a>
         </li>
 
 
@@ -23,7 +23,7 @@
     </div>
   </nav>
 </header>
-<p *ngIf="m"> le prix Totale de cette Livres est :{{m}}</p>
+<!--<p *ngIf="m"> le prix Totale de cette Livres est :{{m}}</p> -->
 
 <main class="container">
 
@@ -54,7 +54,8 @@
       <ngx-qrcode [elementType]="elementType" [value] = "value" cssClass = "aclass" errorCorrectionLevel = "L"></ngx-qrcode>
     </div>
     <input type="button" value="reservé" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
-    <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" ></app-biblio>
+    <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" >
+    </app-biblio>
 
   </div>
 </main>

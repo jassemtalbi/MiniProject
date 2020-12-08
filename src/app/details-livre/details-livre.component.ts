@@ -13,10 +13,11 @@ export class DetailsLivreComponent implements OnInit {
 
   constructor(public ServiceLivre: LivreServiceService, private f: FormBuilder, private activatedRoute: ActivatedRoute) {
   }
+
   idL;
   Livre;
   m;
-value;
+  value;
   elementType = 'Description de  Livre';
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ value;
     this.ServiceLivre.getLivre(this.idL).subscribe(
       (data) => {
         this.Livre = data;
-        this.value = 'le nom de Livre: ' + this.Livre.TitreLivre + 'et le Nom d auteur :' + this.Livre.NomAuteur + 'avec un prix de :' + this.Livre.price;
+        this.value = 'le nom du Livre : ' + this.Livre.TitreLivre + ' et le Nom d auteur :' + this.Livre.NomAuteur + ' avec un prix de :' + this.Livre.price;
       }
     );
   }
@@ -32,7 +33,9 @@ value;
   procces(message): number {
     console.log(message);
     this.m = message;
+    alert('le prix Totale de ces Livres est ' + this.m);
     return message;
+
   }
 
 }
