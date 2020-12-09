@@ -53,7 +53,7 @@
       <span>{{Livre.price}} DT</span>
       <ngx-qrcode [elementType]="elementType" [value] = "value" cssClass = "aclass" errorCorrectionLevel = "L"></ngx-qrcode>
     </div>
-    <input type="button" value="reservé" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
+    <input type="button" value="reserver" class="btn btn-primary" (click)="ServiceLivre.ajouterBiblio(Livre)">
     <app-biblio [Nombre]="Livre.quantity" [price]="Livre.price" (notif)="procces($event)" >
     </app-biblio>
 

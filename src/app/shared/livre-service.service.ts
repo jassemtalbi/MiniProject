@@ -126,7 +126,7 @@ export class LivreServiceService {
 
   public ajouterBiblio(livre) {
     this.aa = false;
-    this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
+   // this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
     this.addBiblio(livre).subscribe(
 
       (data) => {

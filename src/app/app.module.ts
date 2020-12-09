@@ -15,6 +15,9 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { DetailsLivreComponent } from './details-livre/details-livre.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { OrderModule } from 'ngx-order-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,15 +31,17 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     DetailsLivreComponent,
     AuthentificationComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        FormsModule,
-      NgxQRCodeModule
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxQRCodeModule,
+    OrderModule,
+    NgxPaginationModule
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

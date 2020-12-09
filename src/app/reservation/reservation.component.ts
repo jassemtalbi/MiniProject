@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LivreServiceService} from '../shared/livre-service.service';
 
 @Component({
@@ -7,11 +7,20 @@ import {LivreServiceService} from '../shared/livre-service.service';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-
-  constructor(public ServiceLivre: LivreServiceService) { }
+  key:string  = 'id';
+  reverse: boolean = false;
+  p:number=1;
+  constructor(public ServiceLivre: LivreServiceService) {
+  }
 
   ngOnInit(): void {
     this.ServiceLivre.AfficherListBiblio();
+  }
+
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
 }
