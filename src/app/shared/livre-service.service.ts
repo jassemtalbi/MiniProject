@@ -12,11 +12,13 @@ import {user} from '../model/user';
 
 export class LivreServiceService {
   LivreUrl = '/api/Livre/';
+  LivreUrl1 = '/api/Livre';
   BiblioUrl = '/api/Biblio/';
   userUrl = '/api/user';
   ListUser: user[];
   ListLivre: Livre[ ];
   ListBiblio: Biblio[];
+  ListSearch: Livre[];
   fileSource;
   aa = false;
 
@@ -126,13 +128,11 @@ export class LivreServiceService {
 
   public ajouterBiblio(livre) {
     this.aa = false;
-   // this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
+    // this.ListLivre[livre.id].quantity = this.ListLivre[livre.id].quantity - 1;
     this.addBiblio(livre).subscribe(
-
       (data) => {
         console.log('ajouter');
         this.router.navigate(['Home']);
-
       },
       (error) => {
         alert('id trouve');
@@ -151,6 +151,9 @@ export class LivreServiceService {
 
   public goToDetails(id) {
     this.router.navigate(['Home/details/' + id]);
+  }
+  public GoToHome() {
+    this.router.navigate(['Home']);
   }
 
 
@@ -187,4 +190,23 @@ export class LivreServiceService {
     ;
   }
 
+  public search(titre: any, nom: any): Observable<any> {
+    return this.http.get(this.LivreUrl1 + '?NomAuteur_like=' + nom + '&TitreLivre_like=' + titre);
+  }
+
+  public Recherche(titre, nom) {
+    this.search(titre, nom).subscribe(
+      (data) => {
+        if (titre != null) {
+          this.ListSearch = data;
+          console.log(this.ListSearch);
+        }
+      },
+      errors => {
+        console.log(errors);
+        alert(errors.status);
+      },
+    )
+    ;
+  }
 }

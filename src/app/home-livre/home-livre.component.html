@@ -1,8 +1,8 @@
-
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -20,7 +20,28 @@
 
 
       </ul>
-        <input type="text" [(ngModel)]="searchValue" >
+      <form class="form-inline my-2 my-lg-0" (ngSubmit)="onsearchh(f)" #f="ngForm">
+        <input class="form-control mr-sm-2"
+               type="text"
+               id="name"
+               placeholder="Titre"
+               aria-label="Search"
+               name="titre"
+               ngModel
+               required >
+        <input class="form-control mr-sm-2"
+               type="text"
+               aria-label="Search"
+               placeholder="Nom"
+               name="nom"
+               ngModel >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                [disabled]="!f.valid">Search
+        </button>
+        <button class="btn btn-outline-danger" type="button"
+              (click)="cancel()">cancel
+        </button>
+      </form>
 
     </div>
   </nav>
@@ -30,14 +51,46 @@
 <br>
 <!--<button (click)="ServiceLivre.AfficherListLivre()" >afficher</button>
 <button (click)="ServiceLivre.goToAjouter()"  >ajouter</button>-->
+<div *ngIf="SearchMode==false">
 
+<div class="container">
+  <div class="row">
+    <!--    <div  *ngIf="m">{{envoyeralet(m)}}
+        </div>
+  -->
+    <!--   <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
+ -->
+
+    <div class="" *ngFor="let Livre of ServiceLivre.ListLivre">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{Livre?.fileSource}}" style="height: 100px; width:100px"/>
+        <div class="card-body">
+          <h5 class="card-title">Titre : {{Livre.TitreLivre}}</h5>
+          <p class="card-text"> Nom Auteur : {{Livre.NomAuteur}}</p>
+          <p class="card-text"> Price : {{Livre.price}}</p>
+          <p class="card-text"> Quantity : {{Livre.quantity}}</p>
+
+          <img src="./assets/image/delete.png" (click)="ServiceLivre.deleteProduct(Livre.id)">
+          <img src="./assets/image/edit.png" (click)="ServiceLivre.goToModifier(Livre.id)">
+          <input type="button" value="Details" class="btn btn-primary" (click)="ServiceLivre.goToDetails(Livre.id)">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="SearchMode==true">
   <div class="container">
     <div class="row">
-  <!--    <div  *ngIf="m">{{envoyeralet(m)}}
-      </div>
--->
-      <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
+      <!--    <div  *ngIf="m">{{envoyeralet(m)}}
+          </div>
+    -->
+      <!--   <div class="" *ngFor="let Livre of ServiceLivre.ListLivre | searchfilter:searchValue,let i=index ">
+   -->
 
+      <div class="" *ngFor="let Livre of ListLivre">
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{Livre?.fileSource}}" style="height: 100px; width:100px"/>
           <div class="card-body">
@@ -55,6 +108,6 @@
       </div>
     </div>
   </div>
-
+</div>
 
 
