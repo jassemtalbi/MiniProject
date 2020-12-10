@@ -26,15 +26,15 @@
 <table class="table">
   <thead>
   <tr >
-    <th  (click)="sort('id')">ID Livre&nbsp;<i class="fa fa-sort"></i></th>
+      <th  (click)="sort('id')">ID Livre&nbsp;<i class="fa fa-sort"></i></th>
     <th scope="col">Titre Livre</th>
     <th scope="col">Nom Auteur</th>
-    <th  (click)="sort('Price')"> Price&nbsp;<i class="fa fa-sort"></i></th>
+    <th > Price&nbsp;<i class="fa fa-sort"></i></th>
 
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let R of ServiceLivre.ListBiblio | orderBy:key:reverse |paginate:{itemsPerPage:5,currentPage:p};" >
+  <tr *ngFor="let R of ServiceLivre.ListBiblio | orderBy:key:reverse  |paginate:{itemsPerPage:5,currentPage:p};" >
     <th scope="row">{{R.id}}</th>
     <td>{{R.TitreLivre}}</td>
     <td>{{R.NomAuteur}}</td>

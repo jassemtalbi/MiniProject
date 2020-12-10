@@ -7,9 +7,10 @@ import {LivreServiceService} from '../shared/livre-service.service';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-  key:string  = 'id';
+  key: string = 'id';
   reverse: boolean = false;
-  p:number=1;
+  p: number = 1;
+
   constructor(public ServiceLivre: LivreServiceService) {
   }
 
@@ -22,5 +23,7 @@ export class ReservationComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
+
+
 
 }
